@@ -1,5 +1,4 @@
 # ScholarBuzz
-All materials related to development of ScholarBuzz website.
 
 <h3>
   Updated DODs
