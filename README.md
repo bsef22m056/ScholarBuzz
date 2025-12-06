@@ -1,6 +1,6 @@
 # Project Backend – Clean Monolithic Architecture (Updated)
 
-This README explains the updated backend structure for the project.  
+This README explains the updated backend structure along with completed stories for the project.
 Initially, the backend was planned as a **Modular Monolith**, but after implementing the database and analyzing the domain relationships, the architecture has been changed into a **Clean Monolithic Architecture** to ensure proper maintainability and avoid violating module boundaries.
 
 ---
