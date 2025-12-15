@@ -33,8 +33,10 @@ const Dashboard = () => {
   const pendingApplications = applications.filter((a) => a.status === 'draft' || a.status === 'submitted').length;
   const submittedApplications = applications.filter((a) => a.status === 'submitted').length;
 
+  const userName = user?.name?.split(' ')[0] || 'User';
+
   return (
-    <MainLayout title={`Welcome back, ${user.name.split(' ')[0]}!`} subtitle="Here's your scholarship dashboard">
+    <MainLayout title={`Welcome back, ${userName}!`} subtitle="Here's your scholarship dashboard">
       <div className="space-y-6">
         {/* Stats Row */}
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -150,19 +152,19 @@ const Dashboard = () => {
                 </Link>
               </div>
               <div className="flex flex-col items-center">
-                <ProgressRing value={user.profileStrength} size={140} label="Complete" />
+                <ProgressRing value={user?.profileStrength || 0} size={140} label="Complete" />
                 <p className="mt-4 text-sm text-muted-foreground text-center">
                   Complete your profile to get better matches
                 </p>
               </div>
               <div className="mt-4 space-y-2">
-                {user.completedSections.map((section) => (
+                {(user?.completedSections || []).map((section) => (
                   <div key={section} className="flex items-center gap-2 text-sm text-success">
                     <CheckCircle2 className="h-4 w-4" />
                     <span>{section}</span>
                   </div>
                 ))}
-                {user.pendingSections.map((section) => (
+                {(user?.pendingSections || []).map((section) => (
                   <div key={section} className="flex items-center gap-2 text-sm text-muted-foreground">
                     <Circle className="h-4 w-4" />
                     <span>{section}</span>
