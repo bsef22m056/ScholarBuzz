@@ -61,14 +61,18 @@ export interface ChatMessage {
 }
 
 interface AppState {
-  user: UserProfile;
+  user: UserProfile | null;
+  isAuthenticated: boolean;
   scholarships: Scholarship[];
   notifications: Notification[];
   applications: Application[];
   chatMessages: ChatMessage[];
   sidebarOpen: boolean;
+  mobileSidebarOpen: boolean;
   
   // Actions
+  login: (user: Partial<UserProfile>) => void;
+  logout: () => void;
   setUser: (user: Partial<UserProfile>) => void;
   addNotification: (notification: Omit<Notification, 'id' | 'timestamp'>) => void;
   markNotificationRead: (id: string) => void;
@@ -77,6 +81,8 @@ interface AppState {
   updateApplication: (id: string, updates: Partial<Application>) => void;
   addChatMessage: (message: Omit<ChatMessage, 'id' | 'timestamp'>) => void;
   toggleSidebar: () => void;
+  toggleMobileSidebar: () => void;
+  closeMobileSidebar: () => void;
   updateProfileStrength: () => void;
 }
 
@@ -277,15 +283,27 @@ const mockUser: UserProfile = {
 };
 
 export const useAppStore = create<AppState>((set, get) => ({
-  user: mockUser,
+  user: null,
+  isAuthenticated: false,
   scholarships: mockScholarships,
   notifications: mockNotifications,
   applications: mockApplications,
   chatMessages: [],
   sidebarOpen: true,
+  mobileSidebarOpen: false,
+
+  login: (userData) => set({ 
+    user: { ...mockUser, ...userData } as UserProfile,
+    isAuthenticated: true,
+  }),
+
+  logout: () => set({ 
+    user: null, 
+    isAuthenticated: false,
+  }),
 
   setUser: (updates) => set((state) => ({ 
-    user: { ...state.user, ...updates } 
+    user: state.user ? { ...state.user, ...updates } : null
   })),
 
   addNotification: (notification) => set((state) => ({
@@ -331,8 +349,13 @@ export const useAppStore = create<AppState>((set, get) => ({
 
   toggleSidebar: () => set((state) => ({ sidebarOpen: !state.sidebarOpen })),
 
+  toggleMobileSidebar: () => set((state) => ({ mobileSidebarOpen: !state.mobileSidebarOpen })),
+
+  closeMobileSidebar: () => set({ mobileSidebarOpen: false }),
+
   updateProfileStrength: () => {
     const user = get().user;
+    if (!user) return;
     const sections = [
       'Personal Info',
       'Academic Info',
@@ -345,7 +368,7 @@ export const useAppStore = create<AppState>((set, get) => ({
     const total = sections.length;
     const strength = Math.round((completed / total) * 100);
     set((state) => ({
-      user: { ...state.user, profileStrength: strength },
+      user: state.user ? { ...state.user, profileStrength: strength } : null,
     }));
   },
 }));

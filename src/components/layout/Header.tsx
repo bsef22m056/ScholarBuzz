@@ -11,34 +11,34 @@ interface HeaderProps {
 }
 
 export const Header = ({ title, subtitle }: HeaderProps) => {
-  const { notifications, sidebarOpen, toggleSidebar } = useAppStore();
+  const { notifications, toggleMobileSidebar } = useAppStore();
   const unreadCount = notifications.filter((n) => !n.read).length;
 
   return (
     <header className="sticky top-0 z-30 border-b border-border bg-background/80 backdrop-blur-sm">
-      <div className="flex h-16 items-center justify-between px-6">
-        <div className="flex items-center gap-4">
+      <div className="flex h-16 items-center justify-between px-4 md:px-6">
+        <div className="flex items-center gap-3 md:gap-4 min-w-0">
           <button
-            onClick={toggleSidebar}
-            className="lg:hidden rounded-lg p-2 hover:bg-muted transition-colors"
+            onClick={toggleMobileSidebar}
+            className="lg:hidden rounded-lg p-2 hover:bg-muted transition-colors flex-shrink-0"
           >
             <Menu className="h-5 w-5 text-muted-foreground" />
           </button>
-          <div>
-            <h1 className="text-xl font-semibold text-foreground">{title}</h1>
+          <div className="min-w-0">
+            <h1 className="text-lg md:text-xl font-semibold text-foreground truncate">{title}</h1>
             {subtitle && (
-              <p className="text-sm text-muted-foreground">{subtitle}</p>
+              <p className="text-sm text-muted-foreground truncate hidden sm:block">{subtitle}</p>
             )}
           </div>
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 md:gap-4 flex-shrink-0">
           {/* Search */}
           <div className="hidden md:block relative">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <Input
               placeholder="Search scholarships..."
-              className="w-64 pl-10 bg-muted border-0 focus-visible:ring-primary"
+              className="w-48 lg:w-64 pl-10 bg-muted border-0 focus-visible:ring-primary"
             />
           </div>
 
@@ -61,7 +61,7 @@ export const Header = ({ title, subtitle }: HeaderProps) => {
           {/* Profile */}
           <Link
             to="/profile"
-            className="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-primary-foreground font-medium text-sm hover:opacity-90 transition-opacity"
+            className="flex h-8 w-8 md:h-9 md:w-9 items-center justify-center rounded-full bg-primary text-primary-foreground font-medium text-sm hover:opacity-90 transition-opacity"
           >
             AD
           </Link>
