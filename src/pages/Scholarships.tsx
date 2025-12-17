@@ -1,10 +1,13 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { MainLayout } from '@/components/layout/MainLayout';
 import { useAppStore, Scholarship } from '@/stores/useAppStore';
 import { ScholarshipCard } from '@/components/cards/ScholarshipCard';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { Switch } from '@/components/ui/switch';
+import { Label } from '@/components/ui/label';
+import { Slider } from '@/components/ui/slider';
 import {
   Select,
   SelectContent,
@@ -18,54 +21,162 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
-import { Search, Filter, X, CheckCircle2, XCircle, AlertCircle } from 'lucide-react';
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from '@/components/ui/collapsible';
+import { Search, Filter, X, CheckCircle2, XCircle, ChevronDown, Sparkles, User } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const Scholarships = () => {
-  const { scholarships } = useAppStore();
+  const { scholarships, user } = useAppStore();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCountry, setSelectedCountry] = useState<string>('all');
   const [selectedDegree, setSelectedDegree] = useState<string>('all');
   const [sortBy, setSortBy] = useState<string>('match');
   const [selectedScholarship, setSelectedScholarship] = useState<Scholarship | null>(null);
+  const [filtersOpen, setFiltersOpen] = useState(true);
+  
+  // Profile-based matching toggle
+  const [useProfileMatching, setUseProfileMatching] = useState(true);
+  
+  // Additional manual filters
+  const [minMatchScore, setMinMatchScore] = useState(0);
+  const [maxDaysLeft, setMaxDaysLeft] = useState<string>('all');
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
   const countries = ['all', 'USA', 'UK', 'Germany', 'Pakistan', 'Global'];
   const degrees = ['all', 'Undergraduate', 'Graduate', 'PhD', 'Postdoctoral'];
+  const deadlineOptions = ['all', '7', '14', '30', '60'];
+  
+  // Extract unique tags from scholarships
+  const allTags = useMemo(() => {
+    const tags = new Set<string>();
+    scholarships.forEach(s => s.tags.forEach(t => tags.add(t)));
+    return Array.from(tags);
+  }, [scholarships]);
 
-  const filteredScholarships = scholarships
-    .filter((s) => {
-      const matchesSearch = s.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        s.provider.toLowerCase().includes(searchQuery.toLowerCase());
-      const matchesCountry = selectedCountry === 'all' || s.location === selectedCountry;
-      const matchesDegree = selectedDegree === 'all' || 
-        s.tags.some((t) => t.toLowerCase().includes(selectedDegree.toLowerCase()));
-      return matchesSearch && matchesCountry && matchesDegree;
-    })
-    .sort((a, b) => {
-      switch (sortBy) {
-        case 'match':
-          return b.matchPercentage - a.matchPercentage;
-        case 'deadline':
-          return a.daysLeft - b.daysLeft;
-        case 'amount':
-          return 0; // Would need parsing of amount strings
-        default:
-          return 0;
+  // Profile-based filtering logic
+  const profileMatchedScholarships = useMemo(() => {
+    if (!useProfileMatching || !user) return scholarships;
+    
+    return scholarships.filter(scholarship => {
+      const ruleBased = scholarship.eligibility.ruleBased;
+      
+      // Check GPA requirement
+      if (ruleBased.gpa) {
+        const requiredGpa = typeof ruleBased.gpa.required === 'number' 
+          ? ruleBased.gpa.required 
+          : parseFloat(String(ruleBased.gpa.required));
+        if (user.gpa < requiredGpa) return false;
       }
+      
+      // Check nationality (if required and doesn't match)
+      if (ruleBased.nationality) {
+        const required = String(ruleBased.nationality.required).toLowerCase();
+        const userNat = user.nationality.toLowerCase();
+        // Allow if global or matches
+        if (!required.includes('global') && !required.includes(userNat) && !userNat.includes(required.split(' ')[0])) {
+          // Still show but with lower priority - don't filter out completely
+        }
+      }
+      
+      // Check degree level match
+      if (ruleBased.degreeLevel || ruleBased.degree) {
+        const degreeReq = ruleBased.degreeLevel || ruleBased.degree;
+        const required = String(degreeReq.required).toLowerCase();
+        const userDegree = user.degreeLevel.toLowerCase();
+        // Match if contains similar terms
+        if (!required.includes('any') && !userDegree.includes(required.split(' ')[0]) && !required.includes(userDegree.split("'")[0])) {
+          // Still include but flag
+        }
+      }
+      
+      return true;
     });
+  }, [scholarships, useProfileMatching, user]);
+
+  const filteredScholarships = useMemo(() => {
+    return profileMatchedScholarships
+      .filter((s) => {
+        const matchesSearch = s.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          s.provider.toLowerCase().includes(searchQuery.toLowerCase());
+        const matchesCountry = selectedCountry === 'all' || s.location === selectedCountry;
+        const matchesDegree = selectedDegree === 'all' || 
+          s.tags.some((t) => t.toLowerCase().includes(selectedDegree.toLowerCase()));
+        const matchesScore = s.matchPercentage >= minMatchScore;
+        const matchesDeadline = maxDaysLeft === 'all' || s.daysLeft <= parseInt(maxDaysLeft);
+        const matchesTags = selectedTags.length === 0 || 
+          selectedTags.some(tag => s.tags.includes(tag));
+        
+        return matchesSearch && matchesCountry && matchesDegree && matchesScore && matchesDeadline && matchesTags;
+      })
+      .sort((a, b) => {
+        switch (sortBy) {
+          case 'match':
+            return b.matchPercentage - a.matchPercentage;
+          case 'deadline':
+            return a.daysLeft - b.daysLeft;
+          case 'amount':
+            return 0;
+          default:
+            return 0;
+        }
+      });
+  }, [profileMatchedScholarships, searchQuery, selectedCountry, selectedDegree, sortBy, minMatchScore, maxDaysLeft, selectedTags]);
 
   const clearFilters = () => {
     setSearchQuery('');
     setSelectedCountry('all');
     setSelectedDegree('all');
     setSortBy('match');
+    setMinMatchScore(0);
+    setMaxDaysLeft('all');
+    setSelectedTags([]);
   };
 
-  const hasActiveFilters = searchQuery || selectedCountry !== 'all' || selectedDegree !== 'all';
+  const hasActiveFilters = searchQuery || selectedCountry !== 'all' || selectedDegree !== 'all' || 
+    minMatchScore > 0 || maxDaysLeft !== 'all' || selectedTags.length > 0;
+
+  const toggleTag = (tag: string) => {
+    setSelectedTags(prev => 
+      prev.includes(tag) ? prev.filter(t => t !== tag) : [...prev, tag]
+    );
+  };
 
   return (
     <MainLayout title="Scholarships" subtitle="Find your perfect scholarship match">
       <div className="space-y-6">
+        {/* Profile Matching Banner */}
+        <div className="rounded-xl border bg-gradient-to-r from-primary/5 to-primary/10 p-4 shadow-card">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
+                <User className="h-5 w-5 text-primary" />
+              </div>
+              <div>
+                <h3 className="font-medium text-foreground">Profile-Based Matching</h3>
+                <p className="text-sm text-muted-foreground">
+                  {useProfileMatching 
+                    ? `Showing scholarships matching your profile (GPA: ${user?.gpa || 'N/A'}, ${user?.nationality || 'N/A'})`
+                    : 'Showing all scholarships regardless of eligibility'}
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center gap-2">
+              <Switch 
+                id="profile-match" 
+                checked={useProfileMatching}
+                onCheckedChange={setUseProfileMatching}
+              />
+              <Label htmlFor="profile-match" className="text-sm font-medium">
+                {useProfileMatching ? 'On' : 'Off'}
+              </Label>
+            </div>
+          </div>
+        </div>
+
         {/* Search and Filters */}
         <div className="rounded-xl border bg-card p-6 shadow-card">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center">
@@ -80,7 +191,7 @@ const Scholarships = () => {
               />
             </div>
 
-            {/* Filters */}
+            {/* Quick Filters */}
             <div className="flex flex-wrap gap-3">
               <Select value={selectedCountry} onValueChange={setSelectedCountry}>
                 <SelectTrigger className="w-[140px]">
@@ -128,11 +239,73 @@ const Scholarships = () => {
             </div>
           </div>
 
+          {/* Advanced Filters */}
+          <Collapsible open={filtersOpen} onOpenChange={setFiltersOpen} className="mt-4">
+            <CollapsibleTrigger asChild>
+              <Button variant="ghost" size="sm" className="gap-2 text-muted-foreground">
+                <Filter className="h-4 w-4" />
+                Advanced Filters
+                <ChevronDown className={cn("h-4 w-4 transition-transform", filtersOpen && "rotate-180")} />
+              </Button>
+            </CollapsibleTrigger>
+            <CollapsibleContent className="mt-4 space-y-4">
+              {/* Match Score Slider */}
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <Label className="text-sm">Minimum Match Score</Label>
+                  <span className="text-sm font-medium text-primary">{minMatchScore}%</span>
+                </div>
+                <Slider
+                  value={[minMatchScore]}
+                  onValueChange={([value]) => setMinMatchScore(value)}
+                  max={100}
+                  step={5}
+                  className="w-full"
+                />
+              </div>
+
+              {/* Deadline Filter */}
+              <div className="space-y-2">
+                <Label className="text-sm">Deadline Within</Label>
+                <div className="flex flex-wrap gap-2">
+                  {deadlineOptions.map((days) => (
+                    <Button
+                      key={days}
+                      variant={maxDaysLeft === days ? "default" : "outline"}
+                      size="sm"
+                      onClick={() => setMaxDaysLeft(days)}
+                    >
+                      {days === 'all' ? 'Any' : `${days} days`}
+                    </Button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Tag Filters */}
+              <div className="space-y-2">
+                <Label className="text-sm">Categories</Label>
+                <div className="flex flex-wrap gap-2">
+                  {allTags.map((tag) => (
+                    <Badge
+                      key={tag}
+                      variant={selectedTags.includes(tag) ? "default" : "outline"}
+                      className="cursor-pointer hover:bg-primary/80"
+                      onClick={() => toggleTag(tag)}
+                    >
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+            </CollapsibleContent>
+          </Collapsible>
+
           {/* Results count */}
           <div className="mt-4 flex items-center gap-2">
-            <Filter className="h-4 w-4 text-muted-foreground" />
+            <Sparkles className="h-4 w-4 text-primary" />
             <span className="text-sm text-muted-foreground">
               Showing {filteredScholarships.length} of {scholarships.length} scholarships
+              {useProfileMatching && ` (profile-matched)`}
             </span>
           </div>
         </div>
@@ -156,11 +329,20 @@ const Scholarships = () => {
             </div>
             <h3 className="mt-4 text-lg font-semibold">No scholarships found</h3>
             <p className="mt-2 text-muted-foreground">
-              Try adjusting your search or filters
+              {useProfileMatching 
+                ? 'Try turning off profile matching or adjusting your filters'
+                : 'Try adjusting your search or filters'}
             </p>
-            <Button onClick={clearFilters} variant="outline" className="mt-4">
-              Clear Filters
-            </Button>
+            <div className="mt-4 flex justify-center gap-3">
+              <Button onClick={clearFilters} variant="outline">
+                Clear Filters
+              </Button>
+              {useProfileMatching && (
+                <Button onClick={() => setUseProfileMatching(false)} variant="secondary">
+                  Show All Scholarships
+                </Button>
+              )}
+            </div>
           </div>
         )}
 

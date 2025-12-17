@@ -5,8 +5,7 @@ import {
   User, 
   Bell, 
   MessageSquare, 
-  FileText, 
-  Settings,
+  FileText,
   ChevronLeft,
   ChevronRight,
   Sparkles,
@@ -19,16 +18,12 @@ import { Badge } from '@/components/ui/badge';
 import { useNavigate } from 'react-router-dom';
 
 const navItems = [
-  { path: '/', icon: LayoutDashboard, label: 'Dashboard' },
+  { path: '/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
   { path: '/scholarships', icon: GraduationCap, label: 'Scholarships' },
   { path: '/profile', icon: User, label: 'Profile' },
   { path: '/applications', icon: FileText, label: 'Applications' },
   { path: '/notifications', icon: Bell, label: 'Notifications' },
   { path: '/chat', icon: MessageSquare, label: 'AI Assistant' },
-];
-
-const adminItems = [
-  { path: '/admin', icon: Settings, label: 'Admin Panel' },
 ];
 
 export const Sidebar = () => {
@@ -118,7 +113,7 @@ const SidebarContent = ({ sidebarOpen, toggleSidebar, unreadCount, user, onNavCl
     <div className="flex h-full flex-col">
       {/* Logo */}
       <div className="flex h-16 items-center justify-between px-4 border-b border-sidebar-border">
-        <Link to="/" className="flex items-center gap-3" onClick={onNavClick}>
+        <Link to="/dashboard" className="flex items-center gap-3" onClick={onNavClick}>
           <div className="flex h-10 w-10 items-center justify-center rounded-xl gradient-primary">
             <Sparkles className="h-5 w-5 text-primary-foreground" />
           </div>
@@ -185,39 +180,6 @@ const SidebarContent = ({ sidebarOpen, toggleSidebar, unreadCount, user, onNavCl
           );
         })}
 
-        <div className="my-4 border-t border-sidebar-border" />
-
-        <div className="mb-2">
-          {sidebarOpen && (
-            <span className="px-3 text-xs font-medium uppercase text-sidebar-foreground/50">
-              Admin
-            </span>
-          )}
-        </div>
-        {adminItems.map((item) => {
-          const isActive = location.pathname === item.path;
-          const Icon = item.icon;
-
-          return (
-            <Link
-              key={item.path}
-              to={item.path}
-              onClick={onNavClick}
-              className={cn(
-                'flex items-center gap-3 rounded-lg px-3 py-2.5 transition-all duration-200',
-                'hover:bg-sidebar-accent',
-                isActive
-                  ? 'bg-sidebar-primary text-sidebar-primary-foreground'
-                  : 'text-sidebar-foreground/70 hover:text-sidebar-foreground'
-              )}
-            >
-              <Icon className="h-5 w-5 flex-shrink-0" />
-              {sidebarOpen && (
-                <span className="flex-1 animate-fade-in">{item.label}</span>
-              )}
-            </Link>
-          );
-        })}
       </nav>
 
       {/* User Profile Section */}
