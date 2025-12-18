@@ -1,106 +1,118 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useAppStore } from '@/stores/useAppStore';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Sparkles, Mail, Lock, User, ArrowRight } from 'lucide-react';
-import { toast } from '@/hooks/use-toast';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAppStore } from "@/stores/useAppStore";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Sparkles, Mail, Lock, User, ArrowRight } from "lucide-react";
+import { toast } from "@/hooks/use-toast";
 
 export default function Auth() {
   const navigate = useNavigate();
   const { login } = useAppStore();
   const [isLoading, setIsLoading] = useState(false);
-  
+
   // Login form state
-  const [loginEmail, setLoginEmail] = useState('');
-  const [loginPassword, setLoginPassword] = useState('');
-  
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+
   // Signup form state
-  const [signupName, setSignupName] = useState('');
-  const [signupEmail, setSignupEmail] = useState('');
-  const [signupPassword, setSignupPassword] = useState('');
-  const [signupConfirmPassword, setSignupConfirmPassword] = useState('');
+  const [signupName, setSignupName] = useState("");
+  const [signupEmail, setSignupEmail] = useState("");
+  const [signupPassword, setSignupPassword] = useState("");
+  const [signupConfirmPassword, setSignupConfirmPassword] = useState("");
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    
+
     // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
     if (loginEmail && loginPassword) {
       // Mock login - in real app, validate credentials
       login({
-        name: 'Alex Doe',
+        name: "Alex Doe",
         email: loginEmail,
       });
       toast({
-        title: 'Welcome back!',
-        description: 'You have successfully logged in.',
+        title: "Welcome back!",
+        description: "You have successfully logged in.",
       });
-      navigate('/');
+      navigate("/");
     } else {
       toast({
-        title: 'Error',
-        description: 'Please fill in all fields.',
-        variant: 'destructive',
+        title: "Error",
+        description: "Please fill in all fields.",
+        variant: "destructive",
       });
     }
-    
+
     setIsLoading(false);
   };
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    
+
     // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    if (!signupName || !signupEmail || !signupPassword || !signupConfirmPassword) {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    if (
+      !signupName ||
+      !signupEmail ||
+      !signupPassword ||
+      !signupConfirmPassword
+    ) {
       toast({
-        title: 'Error',
-        description: 'Please fill in all fields.',
-        variant: 'destructive',
+        title: "Error",
+        description: "Please fill in all fields.",
+        variant: "destructive",
       });
       setIsLoading(false);
       return;
     }
-    
+
     if (signupPassword !== signupConfirmPassword) {
       toast({
-        title: 'Error',
-        description: 'Passwords do not match.',
-        variant: 'destructive',
+        title: "Error",
+        description: "Passwords do not match.",
+        variant: "destructive",
       });
       setIsLoading(false);
       return;
     }
-    
+
     if (signupPassword.length < 6) {
       toast({
-        title: 'Error',
-        description: 'Password must be at least 6 characters.',
-        variant: 'destructive',
+        title: "Error",
+        description: "Password must be at least 6 characters.",
+        variant: "destructive",
       });
       setIsLoading(false);
       return;
     }
-    
+
     // Mock signup
     login({
       name: signupName,
       email: signupEmail,
     });
     toast({
-      title: 'Account created!',
-      description: 'Welcome to ScholarBuzz. Let\'s find your perfect scholarships!',
+      title: "Account created!",
+      description:
+        "Welcome to ScholarBuzz. Let's find your perfect scholarships!",
     });
-    navigate('/');
-    
+    navigate("/");
+
     setIsLoading(false);
   };
 
@@ -139,7 +151,7 @@ export default function Auth() {
                   <TabsTrigger value="signup">Sign Up</TabsTrigger>
                 </TabsList>
               </CardHeader>
-              
+
               <CardContent>
                 {/* Login Tab */}
                 <TabsContent value="login" className="mt-0">
@@ -158,7 +170,7 @@ export default function Auth() {
                         />
                       </div>
                     </div>
-                    
+
                     <div className="space-y-2">
                       <Label htmlFor="login-password">Password</Label>
                       <div className="relative">
@@ -173,13 +185,13 @@ export default function Auth() {
                         />
                       </div>
                     </div>
-                    
-                    <Button 
-                      type="submit" 
+
+                    <Button
+                      type="submit"
                       className="w-full gradient-primary text-primary-foreground"
                       disabled={isLoading}
                     >
-                      {isLoading ? 'Logging in...' : 'Login'}
+                      {isLoading ? "Logging in..." : "Login"}
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </form>
@@ -202,7 +214,7 @@ export default function Auth() {
                         />
                       </div>
                     </div>
-                    
+
                     <div className="space-y-2">
                       <Label htmlFor="signup-email">Email</Label>
                       <div className="relative">
@@ -217,7 +229,7 @@ export default function Auth() {
                         />
                       </div>
                     </div>
-                    
+
                     <div className="space-y-2">
                       <Label htmlFor="signup-password">Password</Label>
                       <div className="relative">
@@ -232,7 +244,7 @@ export default function Auth() {
                         />
                       </div>
                     </div>
-                    
+
                     <div className="space-y-2">
                       <Label htmlFor="signup-confirm">Confirm Password</Label>
                       <div className="relative">
@@ -242,18 +254,20 @@ export default function Auth() {
                           type="password"
                           placeholder="••••••••"
                           value={signupConfirmPassword}
-                          onChange={(e) => setSignupConfirmPassword(e.target.value)}
+                          onChange={(e) =>
+                            setSignupConfirmPassword(e.target.value)
+                          }
                           className="pl-10"
                         />
                       </div>
                     </div>
-                    
-                    <Button 
-                      type="submit" 
+
+                    <Button
+                      type="submit"
                       className="w-full gradient-primary text-primary-foreground"
                       disabled={isLoading}
                     >
-                      {isLoading ? 'Creating account...' : 'Get Started'}
+                      {isLoading ? "Creating account..." : "Get Started"}
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </form>
@@ -269,7 +283,7 @@ export default function Auth() {
               <div className="text-xs text-muted-foreground">Scholarships</div>
             </div>
             <div className="space-y-1">
-              <div className="text-2xl font-bold text-secondary">95%</div>
+              <div className="text-2xl font-bold text-secondary">73%</div>
               <div className="text-xs text-muted-foreground">Match Rate</div>
             </div>
             <div className="space-y-1">
