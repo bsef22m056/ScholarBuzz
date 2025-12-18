@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { useAppStore } from "@/stores/useAppStore";
 import { ProgressRing } from "@/components/ui/progress-ring";
@@ -7,6 +8,18 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Textarea } from "@/components/ui/textarea";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 import {
   Select,
   SelectContent,
@@ -32,14 +45,19 @@ import {
   Circle,
   Lightbulb,
   Sparkles,
+  Camera,
+  Trash2,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { toast } from "@/hooks/use-toast";
 
 const Profile = () => {
-  const { user, setUser } = useAppStore();
+  const navigate = useNavigate();
+  const { user, setUser, deleteAccount } = useAppStore();
   const [newSkill, setNewSkill] = useState("");
   const [isUploading, setIsUploading] = useState(false);
+  const [isUploadingAvatar, setIsUploadingAvatar] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleSave = () => {
     toast({
@@ -65,11 +83,64 @@ const Profile = () => {
       setIsUploading(false);
       setUser({ resumeUploaded: true });
       toast({
-        title: "Upload Resume ",
+        title: "Resume Uploaded",
         description:
-          "Upload Resume to get Personalized Scholarship recommendation!",
+          "Your resume has been parsed successfully. Skills and experience extracted!",
       });
     }, 2000);
+  };
+
+  const handleAvatarUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    if (!file.type.startsWith("image/")) {
+      toast({
+        title: "Invalid file type",
+        description: "Please upload an image file (JPG, PNG, etc.)",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (file.size > 5 * 1024 * 1024) {
+      toast({
+        title: "File too large",
+        description: "Please upload an image smaller than 5MB",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsUploadingAvatar(true);
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setUser({ avatarUrl: reader.result as string });
+      setIsUploadingAvatar(false);
+      toast({
+        title: "Profile Picture Updated",
+        description: "Your profile picture has been uploaded successfully.",
+      });
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const removeAvatar = () => {
+    setUser({ avatarUrl: null });
+    toast({
+      title: "Profile Picture Removed",
+      description: "Your profile picture has been removed.",
+    });
+  };
+
+  const handleDeleteAccount = () => {
+    deleteAccount();
+    toast({
+      title: "Account Deleted",
+      description: "Your account has been permanently deleted.",
+      variant: "destructive",
+    });
+    navigate("/");
   };
 
   const profileTips = [
@@ -99,6 +170,67 @@ const Profile = () => {
       <div className="grid gap-6 lg:grid-cols-3">
         {/* Main Content */}
         <div className="lg:col-span-2 space-y-6">
+          {/* Profile Picture */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Camera className="h-5 w-5 text-primary" />
+                Profile Picture
+              </CardTitle>
+              <CardDescription>
+                Upload a profile picture to personalize your account
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="flex flex-col items-center gap-4">
+              <div className="relative">
+                <Avatar className="h-32 w-32">
+                  <AvatarImage
+                    src={user.avatarUrl || undefined}
+                    alt={user.name}
+                  />
+                  <AvatarFallback className="text-2xl bg-primary/10 text-primary">
+                    {user.name
+                      .split(" ")
+                      .map((n) => n[0])
+                      .join("")
+                      .toUpperCase()}
+                  </AvatarFallback>
+                </Avatar>
+                {isUploadingAvatar && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-background/80 rounded-full">
+                    <div className="h-8 w-8 rounded-full border-4 border-primary border-t-transparent animate-spin" />
+                  </div>
+                )}
+              </div>
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept="image/*"
+                onChange={handleAvatarUpload}
+                className="hidden"
+              />
+              <div className="flex gap-2">
+                <Button
+                  variant="outline"
+                  onClick={() => fileInputRef.current?.click()}
+                  disabled={isUploadingAvatar}
+                >
+                  <Upload className="h-4 w-4 mr-2" />
+                  {user.avatarUrl ? "Change Picture" : "Upload Picture"}
+                </Button>
+                {user.avatarUrl && (
+                  <Button variant="outline" onClick={removeAvatar}>
+                    <X className="h-4 w-4 mr-2" />
+                    Remove
+                  </Button>
+                )}
+              </div>
+              <p className="text-xs text-muted-foreground">
+                JPG, PNG up to 5MB
+              </p>
+            </CardContent>
+          </Card>
+
           {/* Personal Information */}
           <Card>
             <CardHeader>
@@ -337,6 +469,59 @@ const Profile = () => {
               Save Changes
             </Button>
           </div>
+
+          {/* Danger Zone */}
+          <Card className="border-destructive/50">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-destructive">
+                <Trash2 className="h-5 w-5" />
+                Danger Zone
+              </CardTitle>
+              <CardDescription>
+                Irreversible actions for your account
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="font-medium">Delete Account</p>
+                  <p className="text-sm text-muted-foreground">
+                    Permanently delete your account and all associated data
+                  </p>
+                </div>
+                <AlertDialog>
+                  <AlertDialogTrigger asChild>
+                    <Button variant="destructive">
+                      <Trash2 className="h-4 w-4 mr-2" />
+                      Delete Account
+                    </Button>
+                  </AlertDialogTrigger>
+                  <AlertDialogContent>
+                    <AlertDialogHeader>
+                      <AlertDialogTitle>
+                        Are you absolutely sure?
+                      </AlertDialogTitle>
+                      <AlertDialogDescription>
+                        This action cannot be undone. This will permanently
+                        delete your account and remove all your data including
+                        applications, saved scholarships, and profile
+                        information.
+                      </AlertDialogDescription>
+                    </AlertDialogHeader>
+                    <AlertDialogFooter>
+                      <AlertDialogCancel>Cancel</AlertDialogCancel>
+                      <AlertDialogAction
+                        onClick={handleDeleteAccount}
+                        className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+                      >
+                        Delete Account
+                      </AlertDialogAction>
+                    </AlertDialogFooter>
+                  </AlertDialogContent>
+                </AlertDialog>
+              </div>
+            </CardContent>
+          </Card>
         </div>
 
         {/* Right Sidebar */}
