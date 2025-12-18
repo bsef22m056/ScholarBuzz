@@ -1,36 +1,52 @@
-# Welcome to your Lovable project
+# Scholarbuzz Frontend
 
-## Project info
+Scholarbuzz is a modern web application designed to streamline the scholarship search and application process. It provides a comprehensive platform for students to discover opportunities, track applications, and receive AI-assisted guidance on Scholarships worldwide
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Features
 
-## How can I edit this code?
+- Step 1: Sign Up with your account
+- Step 2: Complete your profile
+- Step 3: Get personalized Scholarships recommendations
 
-There are several ways of editing your application.
+The application includes the following key modules:
 
-**Use Lovable**
+- **Authentication**: Secure login and registration.
+- **Dashboard**: A central hub for users to view their status and quick actions.
+- **Scholarships**: A dedicated section to browse and search for scholarship opportunities.
+- **AI Chatbot**: An intelligent assistant to help users with questions.
+- **Application Tracking**: Tools to manage and view the status of submitted applications.
+- **Notifications**: A system to keep users updated on important events.
+- **User Profile**: Management of user details and preferences.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## Tech Stack
 
-Changes made via Lovable will be committed automatically to this repo.
+This project is built using a modern frontend stack:
 
-**Use your preferred IDE**
+- **Core**: [React](https://react.dev/) with [TypeScript](https://www.typescriptlang.org/)
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **UI Components**: [shadcn/ui](https://ui.shadcn.com/)
+- **Routing**: [React Router DOM](https://reactrouter.com/)
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## How to Run the Project
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Follow these steps to run the project locally:
 
-Follow these steps:
+Prerequisites
+
+- Node.js & npm installed
+
+### Installation
 
 ```sh
 # Step 1: Clone the repository using the project's Git URL.
 git clone <YOUR_GIT_URL>
 
 # Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+cd scholarbuzz-frontend
 
 # Step 3: Install the necessary dependencies.
-npm i
+npm install
 
 # Step 4: Start the development server with auto-reloading and an instant preview.
 npm run dev
@@ -60,14 +76,10 @@ This project is built with:
 - shadcn-ui
 - Tailwind CSS
 
-## How can I deploy this project?
+# Backend Connection
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+- Backend connection through APIs
 
-## Can I connect a custom domain to my Lovable project?
+# Deployment
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+-Free deployment options include Vercel
