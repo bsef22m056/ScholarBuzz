@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "ZMb7YqYpN4o=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Application\\Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\HP\\.nuget\\packages\\isopoh.cryptography.argon2\\2.0.0\\isopoh.cryptography.argon2.2.0.0.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\isopoh.cryptography.blake2b\\2.0.0\\isopoh.cryptography.blake2b.2.0.0.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\isopoh.cryptography.securearray\\2.0.0\\isopoh.cryptography.securearray.2.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
