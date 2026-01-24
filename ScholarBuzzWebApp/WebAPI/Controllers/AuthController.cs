@@ -1,9 +1,12 @@
-﻿using Application.Interfaces;
+﻿using Application.DTOs;
+using Application.Interfaces;
 using Application.Services;
 using Domain.Entities;
 using Domain.Entities.Users;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using WebAPI.DTOs;
 
 namespace WebAPI.Controllers
@@ -52,6 +55,22 @@ namespace WebAPI.Controllers
                 role = user.Role.Name
             });
         }
+        [Authorize]
+        [HttpPatch("ChangePassword")]
+        public async Task<IActionResult> ChangePassword(ChangePasswordDTO dto)
+        {
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+
+            if (userIdClaim == null)
+                return Unauthorized("UserId claim missing");
+
+            int userId = int.Parse(userIdClaim.Value);
+
+            await _userService.ChangePasswordAsync(userId, dto);
+
+            return Ok(new { message = "Password changed successfully" });
+        }
+
         //[HttpGet("ForgotPassword")]
         //public IActionResult ChangePassword()
         //{

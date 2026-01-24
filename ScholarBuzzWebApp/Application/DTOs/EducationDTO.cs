@@ -19,5 +19,4 @@ namespace Application.DTOs
         public double? Scale { get; set; }
         public string? HonorsAward { get; set; }
     }
-
 }

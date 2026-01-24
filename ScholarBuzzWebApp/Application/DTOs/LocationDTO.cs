@@ -14,7 +14,6 @@ namespace Application.DTOs
         public string Name { get; set; } = string.Empty;
         
         public int Type { get; set; } 
-        public string TypeName { get; set; } = string.Empty; // City, Country, etc.
     }
 
 }

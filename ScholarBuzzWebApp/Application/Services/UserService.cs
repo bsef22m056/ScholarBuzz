@@ -18,27 +18,48 @@ namespace Application.Services
         private readonly IUserRepository _userRepo;
         private readonly IRoleRepository _roleRepo;
         private readonly IUserInterestRepository _userInterestRepo;
-
-        public UserService(IUserRepository userRepo, IRoleRepository roleRepo, IUserInterestRepository userInterestRepo)
+        private readonly IUserNationalityRepository _userNationalityRepo;
+        private readonly IUserSkillRepository _userSkillRepo;
+        public UserService(IUserRepository userRepo, IRoleRepository roleRepo, IUserInterestRepository userInterestRepo, IUserNationalityRepository userNationalityRepo, IUserSkillRepository userSkillRepo)
         {
             _userRepo = userRepo;
             _roleRepo = roleRepo;
             _userInterestRepo = userInterestRepo;
+            _userNationalityRepo = userNationalityRepo;
+            _userSkillRepo = userSkillRepo;
         }
 
         // Authentication Related:-
+        public async Task ChangePasswordAsync(int userId, ChangePasswordDTO dto)
+        {
+            var user = await _userRepo.GetUserByIdAsync(userId);
+
+            if (user == null)
+                throw new Exception("User not found");
+
+            // Verify current password
+            bool isValid = Argon2.Verify(user.PasswordHash, dto.CurrentPassword);
+            if (!isValid)
+                throw new Exception("Current password is incorrect");
+
+            // Hash new password
+            user.PasswordHash = Argon2.Hash(dto.NewPassword);
+            user.UpdatedAt = DateTime.UtcNow;
+
+            await _userRepo.UpdateUserAsync(user);
+        }
         public async Task RegisterStudentAsync(User user, string password)
         {
-            // 1. Check if email exists
+            // Check if email exists
             bool emailExists = await _userRepo.EmailExistsAsync(user.Email);
             if (emailExists)
                 throw new Exception("This Email is already taken.");
 
-            // 2. Validate password
+            // Validate password
             if (password.Length < 8 || !password.Any(char.IsDigit))
                 throw new Exception("Password must be at least 8 characters and include a number.");
 
-            // 3. Get Student role
+            // Get Student role
             var studentRole = await _roleRepo.GetRoleByIdAsync(2);
 
             // 4. Initialize remaiining user fields
@@ -120,6 +141,15 @@ namespace Application.Services
                     Type = (int)user.Location.Type
                 },
 
+                Experiences = user.Experiences?.Select(ex => new ExperienceDTO
+                {
+                    Organization = ex.Organization,
+                    Designation = ex.Designation,
+                    Description = ex.Description,
+                    StartDate = ex.StartDate,
+                    EndDate = ex.EndDate
+                }).ToList(),
+
                 Educations = user.Educations?.Select(e => new EducationDTO
                 {
                     DegreeLevel = e.DegreeLevel.Level,
@@ -128,25 +158,25 @@ namespace Application.Services
                     StartDate = e.StartDate,
                     EndDate = e.EndDate,
                     CGPA = e.CGPA,
-                    Percentage = e.Percentage
+                    Percentage = e.Percentage,
+                    Scale = e.Scale,
+                    HonorsAward = e.HonorsAward
                 }).ToList(),
 
                 Achievements = user.Achievements?.Select(a => new AchievementDTO
                 {
                     Title = a.Title,
                     Description = a.Description,
-                    DateRecieved = a.DateReceived
+                    DateReceived = a.DateReceived
                 }).ToList(),
 
                 Interests = user.UserInterests?.Select(i => new InterestDTO
                 {
-                    Id = i.InterestId,
                     Name = i.Interest.Name
                 }).ToList(),
 
                 Skills = user.UserSkills?.Select(us => new SkillDTO
                 {
-                    Id = us.SkillTypeId,
                     Name = us.SkillType.Name,
                     ProficiencyLevel = us.ProficiencyLevel
                 }).ToList(),
@@ -197,19 +227,8 @@ namespace Application.Services
             // ================= NATIONALITY =================
             if (dto.NationalityIds != null)
             {
-                user.UserNationalities ??= new List<UserNationality>();
-                user.UserNationalities.Clear();
-
-                foreach (var nationalityId in dto.NationalityIds)
-                {
-                    user.UserNationalities.Add(new UserNationality
-                    {
-                        UserId = userId,
-                        NationalityId = nationalityId
-                    });
-                }
+                await UpdateUserNationalitiesAsync(userId, dto.NationalityIds);
             }
-
 
             // ================= FINANCIAL INFO =================
             if (dto.FinancialInfo != null)
@@ -247,34 +266,14 @@ namespace Application.Services
             // ================= SKILLS =================
             if (dto.Skills != null)
             {
-                user.UserSkills ??= new List<UserSkill>();
-                user.UserSkills.Clear();
-
-                foreach (var skill in dto.Skills)
-                {
-                    user.UserSkills.Add(new UserSkill
-                    {
-                        UserId = userId,
-                        SkillTypeId = skill.Id,
-                        ProficiencyLevel = skill.ProficiencyLevel
-                    });
-                }
+                await UpdateUserSkillsAsync(userId, dto.Skills);
             }
+
 
             // ================= INTERESTS =================
             if (dto.InterestIds != null)
             {
-                user.UserInterests ??= new List<UserInterest>();
-                user.UserInterests.Clear();
-
-                foreach (var interestId in dto.InterestIds)
-                {
-                    user.UserInterests.Add(new UserInterest
-                    {
-                        UserId = userId,
-                        InterestId = interestId
-                    });
-                }
+                await UpdateUserInterestsAsync(userId, dto.InterestIds);
             }
 
             // ================= EDUCATION =================
@@ -334,7 +333,7 @@ namespace Application.Services
                         UserId = userId,
                         Title = ach.Title,
                         Description = ach.Description,
-                        DateReceived = ach.DateRecieved
+                        DateReceived = ach.DateReceived
                     });
                 }
             }
@@ -343,7 +342,7 @@ namespace Application.Services
         }
 
         // User Interests Related:-
-        public async Task UpdateUserInterestsAsync(int userId, List<int>? interestIds)
+        private async Task UpdateUserInterestsAsync(int userId, List<int>? interestIds)
         {
             if (interestIds == null)
                 return;
@@ -361,13 +360,80 @@ namespace Application.Services
                 .Select(id => new UserInterest
                 {
                     UserId = userId,
-                    InterestId = id,
-                    IsPending = false
+                    InterestId = id
                 })
                 .ToList();
 
             _userInterestRepo.RemoveRange(toRemove);
             await _userInterestRepo.AddRangeAsync(toAdd);
+        }
+
+        // User Nationalities Related:-
+        private async Task UpdateUserNationalitiesAsync(int userId, List<int> nationalityIds)
+        {
+            var existing = await _userNationalityRepo.GetByUserIdAsync(userId);
+
+            var existingIds = existing.Select(x => x.NationalityId).ToHashSet();
+
+            var toRemove = existing
+                .Where(x => !nationalityIds.Contains(x.NationalityId))
+                .ToList();
+
+            var toAdd = nationalityIds
+                .Where(id => !existingIds.Contains(id))
+                .Select(id => new UserNationality
+                {
+                    UserId = userId,
+                    NationalityId = id
+                })
+                .ToList();
+
+            if (toRemove.Any())
+                await _userNationalityRepo.RemoveRangeAsync(toRemove);
+
+            if (toAdd.Any())
+                await _userNationalityRepo.AddRangeAsync(toAdd);
+        }
+
+        // User Skills Related
+        private async Task UpdateUserSkillsAsync(int userId, List<SkillDTO> skills)
+        {
+            var existing = await _userSkillRepo.GetByUserIdAsync(userId);
+
+            var incomingDict = skills.ToDictionary(x => x.Id);
+
+            // Remove skills not present anymore
+            var toRemove = existing
+                .Where(x => !incomingDict.ContainsKey(x.SkillTypeId))
+                .ToList();
+
+            // Update existing skills
+            foreach (var skill in existing)
+            {
+                if (incomingDict.TryGetValue(skill.SkillTypeId, out var dto))
+                {
+                    skill.ProficiencyLevel = dto.ProficiencyLevel;
+                }
+            }
+
+            // Add new skills
+            var existingIds = existing.Select(x => x.SkillTypeId).ToHashSet();
+
+            var toAdd = skills
+                .Where(x => !existingIds.Contains(x.Id))
+                .Select(x => new UserSkill
+                {
+                    UserId = userId,
+                    SkillTypeId = x.Id,
+                    ProficiencyLevel = x.ProficiencyLevel
+                })
+                .ToList();
+
+            if (toRemove.Any())
+                await _userSkillRepo.RemoveRangeAsync(toRemove);
+
+            if (toAdd.Any())
+                await _userSkillRepo.AddRangeAsync(toAdd);
         }
     }
 }

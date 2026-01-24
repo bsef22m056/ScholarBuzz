@@ -7,76 +7,28 @@
       "RelativeMoniker": "D:0:0:{3A800881-CCE5-4662-8F1F-8E482AC3242E}|Application\\Application.csproj|solutionrelative:application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE277566-C890-4260-8C8E-06A82E88E209}|Domain\\Domain.csproj|c:\\users\\hp\\source\\repos\\scholarbuzzwebapp\\domain\\entities\\joins\\userskill.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE277566-C890-4260-8C8E-06A82E88E209}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\joins\\userskill.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3A800881-CCE5-4662-8F1F-8E482AC3242E}|Application\\Application.csproj|c:\\users\\hp\\source\\repos\\scholarbuzzwebapp\\application\\dtos\\skilldto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3A800881-CCE5-4662-8F1F-8E482AC3242E}|Application\\Application.csproj|solutionrelative:application\\dtos\\skilldto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE277566-C890-4260-8C8E-06A82E88E209}|Domain\\Domain.csproj|c:\\users\\hp\\source\\repos\\scholarbuzzwebapp\\domain\\entities\\users\\skilltype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE277566-C890-4260-8C8E-06A82E88E209}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\users\\skilltype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3A800881-CCE5-4662-8F1F-8E482AC3242E}|Application\\Application.csproj|c:\\users\\hp\\source\\repos\\scholarbuzzwebapp\\application\\dtos\\updateprofiledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3A800881-CCE5-4662-8F1F-8E482AC3242E}|Application\\Application.csproj|solutionrelative:application\\dtos\\updateprofiledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1FB32587-7609-438B-8709-A4988AAB341C}|WebAPI\\WebAPI.csproj|c:\\users\\hp\\source\\repos\\scholarbuzzwebapp\\webapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1FB32587-7609-438B-8709-A4988AAB341C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1FB32587-7609-438B-8709-A4988AAB341C}|WebAPI\\WebAPI.csproj|c:\\users\\hp\\source\\repos\\scholarbuzzwebapp\\webapi\\controllers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1FB32587-7609-438B-8709-A4988AAB341C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\controllers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B5BDDD3-215C-4F43-B28A-16EDB0CE5F77}|Infrastructure\\Infrastructure.csproj|c:\\users\\hp\\source\\repos\\scholarbuzzwebapp\\infrastructure\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B5BDDD3-215C-4F43-B28A-16EDB0CE5F77}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3A800881-CCE5-4662-8F1F-8E482AC3242E}|Application\\Application.csproj|c:\\users\\hp\\source\\repos\\scholarbuzzwebapp\\application\\dtos\\changepassworddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A800881-CCE5-4662-8F1F-8E482AC3242E}|Application\\Application.csproj|solutionrelative:application\\dtos\\changepassworddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE277566-C890-4260-8C8E-06A82E88E209}|Domain\\Domain.csproj|c:\\users\\hp\\source\\repos\\scholarbuzzwebapp\\domain\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE277566-C890-4260-8C8E-06A82E88E209}|Domain\\Domain.csproj|solutionrelative:domain\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A800881-CCE5-4662-8F1F-8E482AC3242E}|Application\\Application.csproj|c:\\users\\hp\\source\\repos\\scholarbuzzwebapp\\application\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A800881-CCE5-4662-8F1F-8E482AC3242E}|Application\\Application.csproj|solutionrelative:application\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8B5BDDD3-215C-4F43-B28A-16EDB0CE5F77}|Infrastructure\\Infrastructure.csproj|c:\\users\\hp\\source\\repos\\scholarbuzzwebapp\\infrastructure\\services\\jwttokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8B5BDDD3-215C-4F43-B28A-16EDB0CE5F77}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\services\\jwttokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B5BDDD3-215C-4F43-B28A-16EDB0CE5F77}|Infrastructure\\Infrastructure.csproj|c:\\users\\hp\\source\\repos\\scholarbuzzwebapp\\infrastructure\\scholbuzzdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B5BDDD3-215C-4F43-B28A-16EDB0CE5F77}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\scholbuzzdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1FB32587-7609-438B-8709-A4988AAB341C}|WebAPI\\WebAPI.csproj|c:\\users\\hp\\source\\repos\\scholarbuzzwebapp\\webapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1FB32587-7609-438B-8709-A4988AAB341C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE277566-C890-4260-8C8E-06A82E88E209}|Domain\\Domain.csproj|c:\\users\\hp\\source\\repos\\scholarbuzzwebapp\\domain\\entities\\joins\\userinterest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE277566-C890-4260-8C8E-06A82E88E209}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\joins\\userinterest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE277566-C890-4260-8C8E-06A82E88E209}|Domain\\Domain.csproj|c:\\users\\hp\\source\\repos\\scholarbuzzwebapp\\domain\\entities\\users\\interesttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE277566-C890-4260-8C8E-06A82E88E209}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\users\\interesttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE277566-C890-4260-8C8E-06A82E88E209}|Domain\\Domain.csproj|c:\\users\\hp\\source\\repos\\scholarbuzzwebapp\\domain\\entities\\users\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE277566-C890-4260-8C8E-06A82E88E209}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\users\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE277566-C890-4260-8C8E-06A82E88E209}|Domain\\Domain.csproj|c:\\users\\hp\\source\\repos\\scholarbuzzwebapp\\domain\\enums\\locationtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE277566-C890-4260-8C8E-06A82E88E209}|Domain\\Domain.csproj|solutionrelative:domain\\enums\\locationtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE277566-C890-4260-8C8E-06A82E88E209}|Domain\\Domain.csproj|c:\\users\\hp\\source\\repos\\scholarbuzzwebapp\\domain\\entities\\users\\degreelevel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE277566-C890-4260-8C8E-06A82E88E209}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\users\\degreelevel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3A800881-CCE5-4662-8F1F-8E482AC3242E}|Application\\Application.csproj|c:\\users\\hp\\source\\repos\\scholarbuzzwebapp\\application\\dtos\\educationupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3A800881-CCE5-4662-8F1F-8E482AC3242E}|Application\\Application.csproj|solutionrelative:application\\dtos\\educationupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3A800881-CCE5-4662-8F1F-8E482AC3242E}|Application\\Application.csproj|c:\\users\\hp\\source\\repos\\scholarbuzzwebapp\\application\\dtos\\educationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3A800881-CCE5-4662-8F1F-8E482AC3242E}|Application\\Application.csproj|solutionrelative:application\\dtos\\educationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE277566-C890-4260-8C8E-06A82E88E209}|Domain\\Domain.csproj|c:\\users\\hp\\source\\repos\\scholarbuzzwebapp\\domain\\entities\\userprofile\\education.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE277566-C890-4260-8C8E-06A82E88E209}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\userprofile\\education.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3A800881-CCE5-4662-8F1F-8E482AC3242E}|Application\\Application.csproj|c:\\users\\hp\\source\\repos\\scholarbuzzwebapp\\application\\dtos\\viewprofiledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3A800881-CCE5-4662-8F1F-8E482AC3242E}|Application\\Application.csproj|solutionrelative:application\\dtos\\viewprofiledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -86,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 19,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -94,213 +46,59 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SkillType.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Domain\\Entities\\Users\\SkillType.cs",
-              "RelativeDocumentMoniker": "Domain\\Entities\\Users\\SkillType.cs",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Domain\\Entities\\Users\\SkillType.cs",
-              "RelativeToolTip": "Domain\\Entities\\Users\\SkillType.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAAWAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Domain\\Interfaces\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "Domain\\Interfaces\\IUserRepository.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Domain\\Interfaces\\IUserRepository.cs",
+              "RelativeToolTip": "Domain\\Interfaces\\IUserRepository.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAYwBUAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-24T04:29:54.935Z",
+              "WhenOpened": "2026-01-24T18:01:09.259Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SkillDTO.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Application\\DTOs\\SkillDTO.cs",
-              "RelativeDocumentMoniker": "Application\\DTOs\\SkillDTO.cs",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Application\\DTOs\\SkillDTO.cs",
-              "RelativeToolTip": "Application\\DTOs\\SkillDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAoAAAAjAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "IUserService.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Application\\Interfaces\\IUserService.cs",
+              "RelativeDocumentMoniker": "Application\\Interfaces\\IUserService.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Application\\Interfaces\\IUserService.cs",
+              "RelativeToolTip": "Application\\Interfaces\\IUserService.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAqwBAAAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-24T04:04:26.331Z",
+              "WhenOpened": "2026-01-24T17:54:52.422Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ChangePasswordDTO.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Application\\DTOs\\ChangePasswordDTO.cs",
+              "RelativeDocumentMoniker": "Application\\DTOs\\ChangePasswordDTO.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Application\\DTOs\\ChangePasswordDTO.cs",
+              "RelativeToolTip": "Application\\DTOs\\ChangePasswordDTO.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAmwAwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-24T17:38:18.862Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "UserSkill.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Domain\\Entities\\Joins\\UserSkill.cs",
-              "RelativeDocumentMoniker": "Domain\\Entities\\Joins\\UserSkill.cs",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Domain\\Entities\\Joins\\UserSkill.cs",
-              "RelativeToolTip": "Domain\\Entities\\Joins\\UserSkill.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAQwBIAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-24T03:08:34.947Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "UserInterest.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Domain\\Entities\\Joins\\UserInterest.cs",
-              "RelativeDocumentMoniker": "Domain\\Entities\\Joins\\UserInterest.cs",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Domain\\Entities\\Joins\\UserInterest.cs",
-              "RelativeToolTip": "Domain\\Entities\\Joins\\UserInterest.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-23T17:33:42.796Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Domain\\Entities\\Users\\User.cs",
-              "RelativeDocumentMoniker": "Domain\\Entities\\Users\\User.cs",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Domain\\Entities\\Users\\User.cs",
-              "RelativeToolTip": "Domain\\Entities\\Users\\User.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAQwB8AAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-23T16:45:27.531Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ScholbuzzDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Infrastructure\\ScholbuzzDbContext.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\ScholbuzzDbContext.cs",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Infrastructure\\ScholbuzzDbContext.cs",
-              "RelativeToolTip": "Infrastructure\\ScholbuzzDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAowBIAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-23T16:44:42.661Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "InterestType.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Domain\\Entities\\Users\\InterestType.cs",
-              "RelativeDocumentMoniker": "Domain\\Entities\\Users\\InterestType.cs",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Domain\\Entities\\Users\\InterestType.cs",
-              "RelativeToolTip": "Domain\\Entities\\Users\\InterestType.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAxwBEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-23T13:22:04.076Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UpdateProfileDTO.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Application\\DTOs\\UpdateProfileDTO.cs",
-              "RelativeDocumentMoniker": "Application\\DTOs\\UpdateProfileDTO.cs",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Application\\DTOs\\UpdateProfileDTO.cs",
-              "RelativeToolTip": "Application\\DTOs\\UpdateProfileDTO.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAkwBkAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-22T18:00:41.706Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Education.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Domain\\Entities\\UserProfile\\Education.cs",
-              "RelativeDocumentMoniker": "Domain\\Entities\\UserProfile\\Education.cs",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Domain\\Entities\\UserProfile\\Education.cs",
-              "RelativeToolTip": "Domain\\Entities\\UserProfile\\Education.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-22T13:20:47.731Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "EducationDTO.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Application\\DTOs\\EducationDTO.cs",
-              "RelativeDocumentMoniker": "Application\\DTOs\\EducationDTO.cs",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Application\\DTOs\\EducationDTO.cs",
-              "RelativeToolTip": "Application\\DTOs\\EducationDTO.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAxwBIAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-22T13:20:18.513Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "EducationUpdateDTO.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Application\\DTOs\\EducationUpdateDTO.cs",
-              "RelativeDocumentMoniker": "Application\\DTOs\\EducationUpdateDTO.cs",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Application\\DTOs\\EducationUpdateDTO.cs",
-              "RelativeToolTip": "Application\\DTOs\\EducationUpdateDTO.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAA1wA4AAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-22T12:17:38.851Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "DegreeLevel.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Domain\\Entities\\Users\\DegreeLevel.cs",
-              "RelativeDocumentMoniker": "Domain\\Entities\\Users\\DegreeLevel.cs",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Domain\\Entities\\Users\\DegreeLevel.cs",
-              "RelativeToolTip": "Domain\\Entities\\Users\\DegreeLevel.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAABDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-22T11:46:28.365Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "LocationType.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Domain\\Enums\\LocationType.cs",
-              "RelativeDocumentMoniker": "Domain\\Enums\\LocationType.cs",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Domain\\Enums\\LocationType.cs",
-              "RelativeToolTip": "Domain\\Enums\\LocationType.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-21T16:34:57.094Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\WebAPI\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "WebAPI\\Controllers\\AuthController.cs",
               "ToolTip": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\WebAPI\\Controllers\\AuthController.cs",
               "RelativeToolTip": "WebAPI\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAAAAADUAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAADYAAAAAAAAAAAAgwDgAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-20T13:59:25.033Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "ViewProfileDTO.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Application\\DTOs\\ViewProfileDTO.cs",
-              "RelativeDocumentMoniker": "Application\\DTOs\\ViewProfileDTO.cs",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Application\\DTOs\\ViewProfileDTO.cs",
-              "RelativeToolTip": "Application\\DTOs\\ViewProfileDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-20T09:48:52.562Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "UserRepository.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Infrastructure\\Repositories\\UserRepository.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\Repositories\\UserRepository.cs",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Infrastructure\\Repositories\\UserRepository.cs",
-              "RelativeToolTip": "Infrastructure\\Repositories\\UserRepository.cs",
-              "ViewState": "AgIAAFMAAAAAAAAAAAA3wFQAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-20T08:57:07.546Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
               "Title": "JwtTokenService.cs",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Infrastructure\\Services\\JwtTokenService.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Services\\JwtTokenService.cs",
@@ -308,18 +106,17 @@
               "RelativeToolTip": "Infrastructure\\Services\\JwtTokenService.cs",
               "ViewState": "AgIAAAoAAAAAAAAAAAAYwBYAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-20T08:57:07.612Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-20T08:57:07.612Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "ProfileController.cs",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\WebAPI\\Controllers\\ProfileController.cs",
               "RelativeDocumentMoniker": "WebAPI\\Controllers\\ProfileController.cs",
               "ToolTip": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\WebAPI\\Controllers\\ProfileController.cs",
               "RelativeToolTip": "WebAPI\\Controllers\\ProfileController.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAA5wBkAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAACIAAAAAAAAAAAAvwCsAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-20T08:13:23.675Z",
               "EditorCaption": ""
@@ -330,9 +127,9 @@
               "Title": "UserService.cs",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Application\\Services\\UserService.cs",
               "RelativeDocumentMoniker": "Application\\Services\\UserService.cs",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Application\\Services\\UserService.cs",
-              "RelativeToolTip": "Application\\Services\\UserService.cs",
-              "ViewState": "AgIAADoBAAAAAAAAAAAAAMkAAABCAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Application\\Services\\UserService.cs*",
+              "RelativeToolTip": "Application\\Services\\UserService.cs*",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAQwCgAAABQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-20T06:55:14.225Z",
               "EditorCaption": ""

@@ -23,14 +23,14 @@ namespace Domain.Entities.Users
 
         public FinancialInfo? FinancialInfo { get; set; } // For FinancialInfo
         public MedicalInfo? MedicalInfo { get; set; } // For MedicalInfo
-        public List<Achievement>? Achievements { get; set; } // For Achievements
-        public List<Experience>? Experiences { get; set; } // For Experiences
-        public List<Education>? Educations { get; set; } // For Educations
+        public List<Achievement> Achievements { get; set; } // For Achievements
+        public List<Experience> Experiences { get; set; } // For Experiences
+        public List<Education> Educations { get; set; } // For Educations
 
         // Join Table Navigation Properties:-
-        public List<UserNationality>? UserNationalities { get; set; } // For UserNationality
-        public List<UserInterest>? UserInterests { get; set; }  // For UserInterest
-        public List<UserSkill>? UserSkills { get; set; }  // For UserSkill
+        public List<UserNationality> UserNationalities { get; set; } // For UserNationality
+        public List<UserInterest> UserInterests { get; set; }  // For UserInterest
+        public List<UserSkill> UserSkills { get; set; }  // For UserSkill
 
         public string FirstName { get; set; } = string.Empty; // -
         public string? LastName { get; set; } // -

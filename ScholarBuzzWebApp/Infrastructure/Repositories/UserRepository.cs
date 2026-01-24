@@ -68,18 +68,59 @@ namespace Infrastructure.Repositories
             throw new NotImplementedException();
         }
 
+        //public async Task<User?> GetUserWithProfileAsync(int userId)
+        //{
+        //    return await _context.Users
+        //        .Include(u => u.Educations)
+        //            .ThenInclude(e => e.DegreeLevel)
+        //        .Include(u => u.Experiences)
+        //        .Include(u => u.Achievements)
+        //        .Include(u => u.FinancialInfo)
+        //        .Include(u => u.MedicalInfo)
+        //        .Include(u => u.Location)
+        //        .Include(u => u.UserNationalities)
+        //        .FirstOrDefaultAsync(u => u.Id == userId && !u.IsDeleted);
+        //}
         public async Task<User?> GetUserWithProfileAsync(int userId)
         {
-            return await _context.Users
-                .Include(u => u.Educations)
-                .Include(u => u.Experiences)
-                .Include(u => u.Achievements)
-                .Include(u => u.FinancialInfo)
-                .Include(u => u.MedicalInfo)
-                .Include(u => u.Location)
-                .Include(u => u.UserNationalities)
-                .FirstOrDefaultAsync(u => u.Id == userId && !u.IsDeleted);
+        return await _context.Users
+            // ================= EDUCATION =================
+            .Include(u => u.Educations)
+                .ThenInclude(e => e.DegreeLevel)
+            .Include(u => u.Educations)
+                .ThenInclude(e => e.Field)
+            .Include(u => u.Educations)
+                .ThenInclude(e => e.Institute)
+
+            // ================= EXPERIENCE =================
+            .Include(u => u.Experiences)
+
+            // ================= ACHIEVEMENTS =================
+            .Include(u => u.Achievements)
+
+            // ================= FINANCIAL / MEDICAL =================
+            .Include(u => u.FinancialInfo)
+            .Include(u => u.MedicalInfo)
+
+            // ================= LOCATION =================
+            .Include(u => u.Location)
+
+            // ================= NATIONALITIES =================
+            .Include(u => u.UserNationalities)
+                .ThenInclude(un => un.Nationality)
+
+            // ================= INTERESTS =================
+            .Include(u => u.UserInterests)
+                .ThenInclude(ui => ui.Interest)
+
+            // ================= SKILLS =================
+            .Include(u => u.UserSkills)
+                .ThenInclude(un => un.SkillType)
+
+            .FirstOrDefaultAsync(u => u.Id == userId && !u.IsDeleted);
         }
+
+
 
         public async Task UpdateUserAsync(User user)
         {

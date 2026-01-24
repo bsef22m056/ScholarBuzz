@@ -14,5 +14,7 @@ namespace Application.Interfaces
         Task<User> LoginAsync(string email, string password);
         Task<ViewProfileDTO> GetProfileAsync(int userId);
         Task UpdateProfileAsync(int userId, UpdateProfileDTO dto);
+        Task ChangePasswordAsync(int userId, ChangePasswordDTO dto);
+
     }
 }

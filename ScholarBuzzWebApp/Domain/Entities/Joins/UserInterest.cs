@@ -13,6 +13,5 @@ namespace Domain.Entities.Joins
         public User user { get; set; }
         public int InterestId { get; set; }
         public InterestType Interest { get; set; }
-        public bool IsPending { get; set; }
     }
 }

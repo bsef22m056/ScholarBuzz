@@ -1,0 +1,210 @@
+import { Link, useLocation } from 'react-router-dom';
+import { 
+  LayoutDashboard, 
+  GraduationCap, 
+  User, 
+  Bell, 
+  MessageSquare, 
+  FileText,
+  ChevronLeft,
+  ChevronRight,
+  Sparkles,
+  LogOut,
+  X
+} from 'lucide-react';
+import { cn } from '@/lib/utils';
+import { useAppStore } from '@/stores/useAppStore';
+import { Badge } from '@/components/ui/badge';
+import { useNavigate } from 'react-router-dom';
+
+const navItems = [
+  { path: '/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
+  { path: '/scholarships', icon: GraduationCap, label: 'Scholarships' },
+  { path: '/profile', icon: User, label: 'Profile' },
+  { path: '/applications', icon: FileText, label: 'Applications' },
+  { path: '/notifications', icon: Bell, label: 'Notifications' },
+  { path: '/chat', icon: MessageSquare, label: 'AI Assistant' },
+];
+
+export const Sidebar = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { sidebarOpen, mobileSidebarOpen, toggleSidebar, closeMobileSidebar, notifications, logout, user } = useAppStore();
+  const unreadCount = notifications.filter((n) => !n.read).length;
+
+  const handleLogout = () => {
+    logout();
+    closeMobileSidebar();
+    navigate('/auth');
+  };
+
+  const handleNavClick = () => {
+    closeMobileSidebar();
+  };
+
+  return (
+    <>
+      {/* Mobile Overlay */}
+      {mobileSidebarOpen && (
+        <div 
+          className="fixed inset-0 bg-background/80 backdrop-blur-sm z-40 lg:hidden"
+          onClick={closeMobileSidebar}
+        />
+      )}
+
+      {/* Sidebar */}
+      <aside
+        className={cn(
+          'fixed left-0 top-0 z-50 h-screen transition-all duration-300 ease-in-out',
+          'bg-sidebar border-r border-sidebar-border',
+          // Desktop styles
+          'hidden lg:block',
+          sidebarOpen ? 'lg:w-64' : 'lg:w-20'
+        )}
+      >
+        <SidebarContent 
+          sidebarOpen={sidebarOpen}
+          toggleSidebar={toggleSidebar}
+          unreadCount={unreadCount}
+          user={user}
+          onNavClick={handleNavClick}
+          onLogout={handleLogout}
+          isMobile={false}
+        />
+      </aside>
+
+      {/* Mobile Sidebar */}
+      <aside
+        className={cn(
+          'fixed left-0 top-0 z-50 h-screen transition-transform duration-300 ease-in-out',
+          'bg-sidebar border-r border-sidebar-border w-64',
+          'lg:hidden',
+          mobileSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+        )}
+      >
+        <SidebarContent 
+          sidebarOpen={true}
+          toggleSidebar={closeMobileSidebar}
+          unreadCount={unreadCount}
+          user={user}
+          onNavClick={handleNavClick}
+          onLogout={handleLogout}
+          isMobile={true}
+        />
+      </aside>
+    </>
+  );
+};
+
+interface SidebarContentProps {
+  sidebarOpen: boolean;
+  toggleSidebar: () => void;
+  unreadCount: number;
+  user: any;
+  onNavClick: () => void;
+  onLogout: () => void;
+  isMobile: boolean;
+}
+
+const SidebarContent = ({ sidebarOpen, toggleSidebar, unreadCount, user, onNavClick, onLogout, isMobile }: SidebarContentProps) => {
+  const location = useLocation();
+
+  return (
+    <div className="flex h-full flex-col">
+      {/* Logo */}
+      <div className="flex h-16 items-center justify-between px-4 border-b border-sidebar-border">
+        <Link to="/dashboard" className="flex items-center gap-3" onClick={onNavClick}>
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl gradient-primary">
+            <Sparkles className="h-5 w-5 text-primary-foreground" />
+          </div>
+          {sidebarOpen && (
+            <span className="text-lg font-bold text-sidebar-foreground animate-fade-in">
+              ScholarBuzz
+            </span>
+          )}
+        </Link>
+        <button
+          onClick={toggleSidebar}
+          className="rounded-lg p-2 text-sidebar-foreground/60 hover:bg-sidebar-accent hover:text-sidebar-foreground transition-colors"
+        >
+          {isMobile ? (
+            <X className="h-5 w-5" />
+          ) : sidebarOpen ? (
+            <ChevronLeft className="h-5 w-5" />
+          ) : (
+            <ChevronRight className="h-5 w-5" />
+          )}
+        </button>
+      </div>
+
+      {/* Navigation */}
+      <nav className="flex-1 space-y-1 px-3 py-4 overflow-y-auto">
+        <div className="mb-2">
+          {sidebarOpen && (
+            <span className="px-3 text-xs font-medium uppercase text-sidebar-foreground/50">
+              Main Menu
+            </span>
+          )}
+        </div>
+        {navItems.map((item) => {
+          const isActive = location.pathname === item.path;
+          const Icon = item.icon;
+          const showBadge = item.path === '/notifications' && unreadCount > 0;
+
+          return (
+            <Link
+              key={item.path}
+              to={item.path}
+              onClick={onNavClick}
+              className={cn(
+                'flex items-center gap-3 rounded-lg px-3 py-2.5 transition-all duration-200 relative',
+                'hover:bg-sidebar-accent',
+                isActive
+                  ? 'bg-sidebar-primary text-sidebar-primary-foreground shadow-glow'
+                  : 'text-sidebar-foreground/70 hover:text-sidebar-foreground'
+              )}
+            >
+              <Icon className="h-5 w-5 flex-shrink-0" />
+              {sidebarOpen && (
+                <span className="flex-1 animate-fade-in">{item.label}</span>
+              )}
+              {showBadge && sidebarOpen && (
+                <Badge className="bg-destructive text-destructive-foreground text-xs px-2 py-0.5">
+                  {unreadCount}
+                </Badge>
+              )}
+              {showBadge && !sidebarOpen && (
+                <span className="absolute right-2 top-1 h-2 w-2 rounded-full bg-destructive" />
+              )}
+            </Link>
+          );
+        })}
+
+      </nav>
+
+      {/* User Profile Section */}
+      <div className="border-t border-sidebar-border p-4">
+        <div className="flex items-center gap-3">
+          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-sidebar-accent text-sidebar-foreground font-medium">
+            {user?.name?.split(' ').map((n: string) => n[0]).join('').slice(0, 2) || 'U'}
+          </div>
+          {sidebarOpen && (
+            <div className="flex-1 animate-fade-in">
+              <p className="text-sm font-medium text-sidebar-foreground">{user?.name || 'User'}</p>
+              <p className="text-xs text-sidebar-foreground/60">Student</p>
+            </div>
+          )}
+          {sidebarOpen && (
+            <button
+              onClick={onLogout}
+              className="p-2 rounded-lg text-sidebar-foreground/60 hover:bg-sidebar-accent hover:text-sidebar-foreground transition-colors"
+              title="Logout"
+            >
+              <LogOut className="h-4 w-4" />
+            </button>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};

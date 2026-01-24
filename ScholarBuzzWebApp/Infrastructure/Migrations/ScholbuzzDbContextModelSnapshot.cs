@@ -30,9 +30,6 @@ namespace Infrastructure.Migrations
                     b.Property<int>("InterestId")
                         .HasColumnType("int");
 
-                    b.Property<bool>("IsPending")
-                        .HasColumnType("bit");
-
                     b.HasKey("UserId", "InterestId");
 
                     b.HasIndex("InterestId");

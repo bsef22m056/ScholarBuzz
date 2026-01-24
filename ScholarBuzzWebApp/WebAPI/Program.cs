@@ -40,6 +40,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 // Registering Repositories here
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IRoleRepository, RoleRepository>();
+builder.Services.AddScoped<IUserInterestRepository, UserInterestRepository>();
+builder.Services.AddScoped<IUserNationalityRepository, UserNationalityRepository>();
+builder.Services.AddScoped<IUserSkillRepository, UserSkillRepository>();
 
 // Registering Services here
 builder.Services.AddScoped<IUserService, UserService>();
