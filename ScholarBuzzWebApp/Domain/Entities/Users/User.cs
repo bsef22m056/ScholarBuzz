@@ -47,6 +47,7 @@ namespace Domain.Entities.Users
         public DateTime? LockoutEndTime { get; set; } // For Lockout check
         public bool IsLockedOut { get; set; } // For Lockout check
         public bool IsDeleted { get; set; } // For Soft Deletion
+        public DateTime? DeletedAt { get; set; } // For Soft Deletion
         public string? PasswordResetToken { get; set; } // For Forgot Password
         public DateTime? PasswordResetTokenExpiry { get; set; } // For Forgot Password
     }

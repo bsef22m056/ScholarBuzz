@@ -27,4 +27,5 @@
 <ul>
   <li>Update Profile Feature Implemented</li> 
   <li>View Profile Feature Implemented</li>
+  <li>Delete Account Feature Implemented</li>
 </ul>

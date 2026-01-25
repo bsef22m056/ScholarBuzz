@@ -3,36 +3,48 @@
   "WorkspaceRootPath": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{3A800881-CCE5-4662-8F1F-8E482AC3242E}|Application\\Application.csproj|c:\\users\\hp\\source\\repos\\scholarbuzzwebapp\\application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A800881-CCE5-4662-8F1F-8E482AC3242E}|Application\\Application.csproj|solutionrelative:application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B5BDDD3-215C-4F43-B28A-16EDB0CE5F77}|Infrastructure\\Infrastructure.csproj|c:\\users\\hp\\source\\repos\\scholarbuzzwebapp\\infrastructure\\services\\jwttokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B5BDDD3-215C-4F43-B28A-16EDB0CE5F77}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\services\\jwttokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8B5BDDD3-215C-4F43-B28A-16EDB0CE5F77}|Infrastructure\\Infrastructure.csproj|c:\\users\\hp\\source\\repos\\scholarbuzzwebapp\\infrastructure\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8B5BDDD3-215C-4F43-B28A-16EDB0CE5F77}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1FB32587-7609-438B-8709-A4988AAB341C}|WebAPI\\WebAPI.csproj|c:\\users\\hp\\source\\repos\\scholarbuzzwebapp\\webapi\\controllers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1FB32587-7609-438B-8709-A4988AAB341C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\controllers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE277566-C890-4260-8C8E-06A82E88E209}|Domain\\Domain.csproj|c:\\users\\hp\\source\\repos\\scholarbuzzwebapp\\domain\\entities\\users\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE277566-C890-4260-8C8E-06A82E88E209}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\users\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A800881-CCE5-4662-8F1F-8E482AC3242E}|Application\\Application.csproj|c:\\users\\hp\\source\\repos\\scholarbuzzwebapp\\application\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A800881-CCE5-4662-8F1F-8E482AC3242E}|Application\\Application.csproj|solutionrelative:application\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1FB32587-7609-438B-8709-A4988AAB341C}|WebAPI\\WebAPI.csproj|c:\\users\\hp\\source\\repos\\scholarbuzzwebapp\\webapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1FB32587-7609-438B-8709-A4988AAB341C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B5BDDD3-215C-4F43-B28A-16EDB0CE5F77}|Infrastructure\\Infrastructure.csproj|c:\\users\\hp\\source\\repos\\scholarbuzzwebapp\\infrastructure\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B5BDDD3-215C-4F43-B28A-16EDB0CE5F77}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3A800881-CCE5-4662-8F1F-8E482AC3242E}|Application\\Application.csproj|c:\\users\\hp\\source\\repos\\scholarbuzzwebapp\\application\\dtos\\deleteaccountdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A800881-CCE5-4662-8F1F-8E482AC3242E}|Application\\Application.csproj|solutionrelative:application\\dtos\\deleteaccountdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3A800881-CCE5-4662-8F1F-8E482AC3242E}|Application\\Application.csproj|c:\\users\\hp\\source\\repos\\scholarbuzzwebapp\\application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3A800881-CCE5-4662-8F1F-8E482AC3242E}|Application\\Application.csproj|solutionrelative:application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8B5BDDD3-215C-4F43-B28A-16EDB0CE5F77}|Infrastructure\\Infrastructure.csproj|c:\\users\\hp\\source\\repos\\scholarbuzzwebapp\\infrastructure\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B5BDDD3-215C-4F43-B28A-16EDB0CE5F77}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3A800881-CCE5-4662-8F1F-8E482AC3242E}|Application\\Application.csproj|c:\\users\\hp\\source\\repos\\scholarbuzzwebapp\\application\\interfaces\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3A800881-CCE5-4662-8F1F-8E482AC3242E}|Application\\Application.csproj|solutionrelative:application\\interfaces\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1FB32587-7609-438B-8709-A4988AAB341C}|WebAPI\\WebAPI.csproj|c:\\users\\hp\\source\\repos\\scholarbuzzwebapp\\webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{1FB32587-7609-438B-8709-A4988AAB341C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1FB32587-7609-438B-8709-A4988AAB341C}|WebAPI\\WebAPI.csproj|c:\\users\\hp\\source\\repos\\scholarbuzzwebapp\\webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1FB32587-7609-438B-8709-A4988AAB341C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3A800881-CCE5-4662-8F1F-8E482AC3242E}|Application\\Application.csproj|c:\\users\\hp\\source\\repos\\scholarbuzzwebapp\\application\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3A800881-CCE5-4662-8F1F-8E482AC3242E}|Application\\Application.csproj|solutionrelative:application\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BE277566-C890-4260-8C8E-06A82E88E209}|Domain\\Domain.csproj|c:\\users\\hp\\source\\repos\\scholarbuzzwebapp\\domain\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -47,20 +59,8 @@
       "RelativeMoniker": "D:0:0:{3A800881-CCE5-4662-8F1F-8E482AC3242E}|Application\\Application.csproj|solutionrelative:application\\dtos\\resetpassworddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE277566-C890-4260-8C8E-06A82E88E209}|Domain\\Domain.csproj|c:\\users\\hp\\source\\repos\\scholarbuzzwebapp\\domain\\entities\\users\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE277566-C890-4260-8C8E-06A82E88E209}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\users\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1FB32587-7609-438B-8709-A4988AAB341C}|WebAPI\\WebAPI.csproj|c:\\users\\hp\\source\\repos\\scholarbuzzwebapp\\webapi\\controllers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1FB32587-7609-438B-8709-A4988AAB341C}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\controllers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3A800881-CCE5-4662-8F1F-8E482AC3242E}|Application\\Application.csproj|c:\\users\\hp\\source\\repos\\scholarbuzzwebapp\\application\\dtos\\changepassworddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3A800881-CCE5-4662-8F1F-8E482AC3242E}|Application\\Application.csproj|solutionrelative:application\\dtos\\changepassworddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B5BDDD3-215C-4F43-B28A-16EDB0CE5F77}|Infrastructure\\Infrastructure.csproj|c:\\users\\hp\\source\\repos\\scholarbuzzwebapp\\infrastructure\\services\\jwttokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B5BDDD3-215C-4F43-B28A-16EDB0CE5F77}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\services\\jwttokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -70,7 +70,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 15,
           "Children": [
             {
               "$type": "Bookmark",
@@ -78,7 +78,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
+              "Title": "DeleteAccountDTO.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Application\\DTOs\\DeleteAccountDTO.cs",
+              "RelativeDocumentMoniker": "Application\\DTOs\\DeleteAccountDTO.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Application\\DTOs\\DeleteAccountDTO.cs",
+              "RelativeToolTip": "Application\\DTOs\\DeleteAccountDTO.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAqwAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-25T08:55:46.493Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\WebAPI\\Program.cs",
               "RelativeDocumentMoniker": "WebAPI\\Program.cs",
@@ -86,25 +99,11 @@
               "RelativeToolTip": "WebAPI\\Program.cs",
               "ViewState": "AgIAACQAAAAAAAAAAAAAADIAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-25T05:05:21.782Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-25T05:05:21.782Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\WebAPI\\appsettings.json",
-              "RelativeDocumentMoniker": "WebAPI\\appsettings.json",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\WebAPI\\appsettings.json",
-              "RelativeToolTip": "WebAPI\\appsettings.json",
-              "ViewState": "AgIAAAcAAAAAAAAAAADwvxYAAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-01-25T05:04:04.914Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
               "Title": "EmailService.cs",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Infrastructure\\Services\\EmailService.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Services\\EmailService.cs",
@@ -112,12 +111,11 @@
               "RelativeToolTip": "Infrastructure\\Services\\EmailService.cs",
               "ViewState": "AgIAABgAAAAAAAAAAAAYwBoAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-25T05:00:52.876Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-25T05:00:52.876Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "IEmailService.cs",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Application\\Interfaces\\IEmailService.cs",
               "RelativeDocumentMoniker": "Application\\Interfaces\\IEmailService.cs",
@@ -125,25 +123,24 @@
               "RelativeToolTip": "Application\\Interfaces\\IEmailService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-25T04:59:43.112Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-25T04:59:43.112Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "UserRepository.cs",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Infrastructure\\Repositories\\UserRepository.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Repositories\\UserRepository.cs",
               "ToolTip": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Infrastructure\\Repositories\\UserRepository.cs",
               "RelativeToolTip": "Infrastructure\\Repositories\\UserRepository.cs",
-              "ViewState": "AgIAAF4AAAAAAAAAAAArwG8AAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAqwG8AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-24T19:36:59.583Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "ResetPasswordDTO.cs",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Application\\DTOs\\ResetPasswordDTO.cs",
               "RelativeDocumentMoniker": "Application\\DTOs\\ResetPasswordDTO.cs",
@@ -155,7 +152,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "ForgotPasswordDTO.cs",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Application\\DTOs\\ForgotPasswordDTO.cs",
               "RelativeDocumentMoniker": "Application\\DTOs\\ForgotPasswordDTO.cs",
@@ -167,19 +164,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 4,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Domain\\Entities\\Users\\User.cs",
               "RelativeDocumentMoniker": "Domain\\Entities\\Users\\User.cs",
               "ToolTip": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Domain\\Entities\\Users\\User.cs",
               "RelativeToolTip": "Domain\\Entities\\Users\\User.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAowBQAAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-24T19:25:55.523Z"
+              "WhenOpened": "2026-01-24T19:25:55.523Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "IUserRepository.cs",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Domain\\Interfaces\\IUserRepository.cs",
               "RelativeDocumentMoniker": "Domain\\Interfaces\\IUserRepository.cs",
@@ -191,19 +189,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 5,
               "Title": "IUserService.cs",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Application\\Interfaces\\IUserService.cs",
               "RelativeDocumentMoniker": "Application\\Interfaces\\IUserService.cs",
               "ToolTip": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Application\\Interfaces\\IUserService.cs",
               "RelativeToolTip": "Application\\Interfaces\\IUserService.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAswBIAAAA2AAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAqwBMAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-24T17:54:52.422Z"
+              "WhenOpened": "2026-01-24T17:54:52.422Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "ChangePasswordDTO.cs",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Application\\DTOs\\ChangePasswordDTO.cs",
               "RelativeDocumentMoniker": "Application\\DTOs\\ChangePasswordDTO.cs",
@@ -215,51 +214,52 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\WebAPI\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "WebAPI\\Controllers\\AuthController.cs",
               "ToolTip": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\WebAPI\\Controllers\\AuthController.cs",
               "RelativeToolTip": "WebAPI\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAqwEoAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAADsAAAAAAAAAAAAgwD0AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-20T13:59:25.033Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 1,
               "Title": "JwtTokenService.cs",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Infrastructure\\Services\\JwtTokenService.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Services\\JwtTokenService.cs",
               "ToolTip": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Infrastructure\\Services\\JwtTokenService.cs",
               "RelativeToolTip": "Infrastructure\\Services\\JwtTokenService.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAYwBYAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAawCEAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-20T08:57:07.612Z"
+              "WhenOpened": "2026-01-20T08:57:07.612Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 3,
               "Title": "ProfileController.cs",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\WebAPI\\Controllers\\ProfileController.cs",
               "RelativeDocumentMoniker": "WebAPI\\Controllers\\ProfileController.cs",
               "ToolTip": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\WebAPI\\Controllers\\ProfileController.cs",
               "RelativeToolTip": "WebAPI\\Controllers\\ProfileController.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAvwCsAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAADAAAAAAAAAAAAAYwD8AAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-20T08:13:23.675Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "UserService.cs",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Application\\Services\\UserService.cs",
               "RelativeDocumentMoniker": "Application\\Services\\UserService.cs",
               "ToolTip": "C:\\Users\\HP\\source\\repos\\ScholarBuzzWebApp\\Application\\Services\\UserService.cs",
               "RelativeToolTip": "Application\\Services\\UserService.cs",
-              "ViewState": "AgIAANUBAAAAAAAAAAAuwMcBAABVAAAAAAAAAA==",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAgwLUBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-20T06:55:14.225Z",
               "EditorCaption": ""

@@ -29,6 +29,7 @@ namespace Infrastructure.Repositories
             if (user != null)
             {
                 user.IsDeleted = true;
+                user.DeletedAt = DateTime.UtcNow;
                 await _context.SaveChangesAsync();
             }
         }

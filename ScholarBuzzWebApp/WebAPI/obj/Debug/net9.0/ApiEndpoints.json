@@ -81,6 +81,22 @@
   },
   {
     "ContainingType": "WebAPI.Controllers.ProfileController",
+    "Method": "DeleteAccount",
+    "RelativePath": "api/Profile/DeleteAccount",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Application.DTOs.DeleteAccountDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.ProfileController",
     "Method": "UpdateProfile",
     "RelativePath": "api/Profile/UpdateProfile",
     "HttpMethod": "PUT",

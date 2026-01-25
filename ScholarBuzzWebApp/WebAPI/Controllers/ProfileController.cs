@@ -53,5 +53,20 @@ namespace WebAPI.Controllers
 
             return Ok(new { message = "Profile updated successfully" });
         }
+        [HttpDelete("DeleteAccount")]
+        public async Task<IActionResult> DeleteAccount(DeleteAccountDTO dto)
+        {
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+
+            if (userIdClaim == null)
+                return Unauthorized("UserId claim missing");
+
+            int userId = int.Parse(userIdClaim.Value);
+
+            await _userService.DeleteAccountAsync(userId, dto.Password);
+
+            return Ok(new { message = "Account deleted successfully" });
+        }
+
     }
 }

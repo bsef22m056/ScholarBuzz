@@ -1,3 +1,4 @@
+C:\Users\HP\source\repos\ScholarBuzzWebApp\WebAPI\bin\Debug\net9.0\appsecrets.json
 C:\Users\HP\source\repos\ScholarBuzzWebApp\WebAPI\bin\Debug\net9.0\appsettings.Development.json
 C:\Users\HP\source\repos\ScholarBuzzWebApp\WebAPI\bin\Debug\net9.0\appsettings.json
 C:\Users\HP\source\repos\ScholarBuzzWebApp\WebAPI\bin\Debug\net9.0\WebAPI.staticwebassets.endpoints.json

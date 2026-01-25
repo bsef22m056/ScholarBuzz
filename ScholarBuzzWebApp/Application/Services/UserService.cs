@@ -91,6 +91,11 @@ namespace Application.Services
             if (user.IsLockedOut && user.LockoutEndTime > DateTime.UtcNow)
                 throw new Exception("Account locked. Try again later.");
 
+            if (user.IsDeleted)
+            {
+                throw new Exception("Your account has been Deleted!");
+            }
+
             bool isPasswordCorrect = Argon2.Verify(user.PasswordHash, password);
 
             if (!isPasswordCorrect)
@@ -481,5 +486,23 @@ namespace Application.Services
 
             await _userRepo.UpdateUserAsync(user);
         }
+
+        // ================= Delete Account =================
+        public async Task DeleteAccountAsync(int userId, string password)
+        {
+            var user = await _userRepo.GetUserByIdAsync(userId);
+
+            if (user == null || user.IsDeleted)
+                throw new Exception("User not found");
+
+            // Verify password
+            var isValid = Argon2.Verify(user.PasswordHash, password);
+
+            if (!isValid)
+                throw new Exception("Invalid password");
+
+            await _userRepo.DeleteUserAsync(userId);
+        }
+
     }
 }

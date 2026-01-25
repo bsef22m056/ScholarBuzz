@@ -17,5 +17,6 @@ namespace Application.Interfaces
         Task ChangePasswordAsync(int userId, ChangePasswordDTO dto);
         Task ForgotPasswordAsync(ForgotPasswordDTO dto);
         Task ResetPasswordAsync(ResetPasswordDTO dto);
+        Task DeleteAccountAsync(int userId, string password);
     }
 }
