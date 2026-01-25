@@ -71,10 +71,28 @@ namespace WebAPI.Controllers
             return Ok(new { message = "Password changed successfully" });
         }
 
-        //[HttpGet("ForgotPassword")]
-        //public IActionResult ChangePassword()
-        //{
+        // ================= FORGOT PASSWORD =================
+        [HttpPost("ForgotPassword")]
+        public async Task<IActionResult> ForgotPassword(ForgotPasswordDTO dto)
+        {
+            await _userService.ForgotPasswordAsync(dto);
 
-        //}
+            return Ok(new
+            {
+                message = "If the email exists, a reset link has been sent."
+            });
+        }
+
+        // ================= RESET PASSWORD =================
+        [HttpPost("ResetPassword")]
+        public async Task<IActionResult> ResetPassword(ResetPasswordDTO dto)
+        {
+            await _userService.ResetPasswordAsync(dto);
+
+            return Ok(new
+            {
+                message = "Password reset successfully"
+            });
+        }
     }
 }

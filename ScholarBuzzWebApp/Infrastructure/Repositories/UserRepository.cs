@@ -68,19 +68,6 @@ namespace Infrastructure.Repositories
             throw new NotImplementedException();
         }
 
-        //public async Task<User?> GetUserWithProfileAsync(int userId)
-        //{
-        //    return await _context.Users
-        //        .Include(u => u.Educations)
-        //            .ThenInclude(e => e.DegreeLevel)
-        //        .Include(u => u.Experiences)
-        //        .Include(u => u.Achievements)
-        //        .Include(u => u.FinancialInfo)
-        //        .Include(u => u.MedicalInfo)
-        //        .Include(u => u.Location)
-        //        .Include(u => u.UserNationalities)
-        //        .FirstOrDefaultAsync(u => u.Id == userId && !u.IsDeleted);
-        //}
         public async Task<User?> GetUserWithProfileAsync(int userId)
         {
         return await _context.Users
@@ -120,8 +107,6 @@ namespace Infrastructure.Repositories
             .FirstOrDefaultAsync(u => u.Id == userId && !u.IsDeleted);
         }
 
-
-
         public async Task UpdateUserAsync(User user)
         {
             var existing = _context.Users.Find(user.Id);
@@ -140,6 +125,15 @@ namespace Infrastructure.Repositories
             existing.UpdatedAt = DateTime.UtcNow;
 
             await _context.SaveChangesAsync();
+        }
+
+        public async Task<User?> GetByResetTokenAsync(string token)
+        {
+            return await _context.Users
+                .FirstOrDefaultAsync(u =>
+                    u.PasswordResetToken == token &&
+                    u.PasswordResetTokenExpiry > DateTime.UtcNow &&
+                    !u.IsDeleted);
         }
     }
 }

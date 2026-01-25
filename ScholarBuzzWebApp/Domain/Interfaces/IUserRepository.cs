@@ -29,7 +29,8 @@ namespace Domain.Interfaces
 
         // Soft Deletion
         Task DeleteUserAsync(int userId);
+
+        // Reset Password
+        Task<User?> GetByResetTokenAsync(string token);
     }
 }
-
-

@@ -32,20 +32,22 @@ namespace Domain.Entities.Users
         public List<UserInterest> UserInterests { get; set; }  // For UserInterest
         public List<UserSkill> UserSkills { get; set; }  // For UserSkill
 
-        public string FirstName { get; set; } = string.Empty; // -
-        public string? LastName { get; set; } // -
-        public string Email { get; set; } = string.Empty; // -
-        public string PasswordHash { get; set; } = string.Empty; // -
-        public string? PhoneNumber { get; set; } // -
-        public DateOnly DateOfBirth { get; set; } // -
-        public string Gender { get; set; } = string.Empty; // -
+        public string FirstName { get; set; } = string.Empty;
+        public string? LastName { get; set; }
+        public string Email { get; set; } = string.Empty;
+        public string PasswordHash { get; set; } = string.Empty;
+        public string? PhoneNumber { get; set; }
+        public DateOnly DateOfBirth { get; set; } 
+        public string Gender { get; set; } = string.Empty; 
 
-        public DateTime UpdatedAt { get; set; } // -
-        public DateTime CreatedAt { get; set; } // -
+        public DateTime UpdatedAt { get; set; } 
+        public DateTime CreatedAt { get; set; } 
         
-        public int FailedLoginAttempts { get; set; } // For Lockout check -
-        public DateTime? LockoutEndTime { get; set; } // For Lockout check -
-        public bool IsLockedOut { get; set; } // For Lockout check -
+        public int FailedLoginAttempts { get; set; } // For Lockout check
+        public DateTime? LockoutEndTime { get; set; } // For Lockout check
+        public bool IsLockedOut { get; set; } // For Lockout check
         public bool IsDeleted { get; set; } // For Soft Deletion
+        public string? PasswordResetToken { get; set; } // For Forgot Password
+        public DateTime? PasswordResetTokenExpiry { get; set; } // For Forgot Password
     }
 }

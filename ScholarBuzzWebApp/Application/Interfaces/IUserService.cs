@@ -15,6 +15,7 @@ namespace Application.Interfaces
         Task<ViewProfileDTO> GetProfileAsync(int userId);
         Task UpdateProfileAsync(int userId, UpdateProfileDTO dto);
         Task ChangePasswordAsync(int userId, ChangePasswordDTO dto);
-
+        Task ForgotPasswordAsync(ForgotPasswordDTO dto);
+        Task ResetPasswordAsync(ResetPasswordDTO dto);
     }
 }

@@ -20,13 +20,15 @@ namespace Application.Services
         private readonly IUserInterestRepository _userInterestRepo;
         private readonly IUserNationalityRepository _userNationalityRepo;
         private readonly IUserSkillRepository _userSkillRepo;
-        public UserService(IUserRepository userRepo, IRoleRepository roleRepo, IUserInterestRepository userInterestRepo, IUserNationalityRepository userNationalityRepo, IUserSkillRepository userSkillRepo)
+        private readonly IEmailService _emailService;
+        public UserService(IUserRepository userRepo, IRoleRepository roleRepo, IUserInterestRepository userInterestRepo, IUserNationalityRepository userNationalityRepo, IUserSkillRepository userSkillRepo, IEmailService emailService)
         {
             _userRepo = userRepo;
             _roleRepo = roleRepo;
             _userInterestRepo = userInterestRepo;
             _userNationalityRepo = userNationalityRepo;
             _userSkillRepo = userSkillRepo;
+            _emailService = emailService;
         }
 
         // Authentication Related:-
@@ -434,6 +436,50 @@ namespace Application.Services
 
             if (toAdd.Any())
                 await _userSkillRepo.AddRangeAsync(toAdd);
+        }
+
+        public async Task ForgotPasswordAsync(ForgotPasswordDTO dto)
+        {
+            var user = await _userRepo.GetUserByEmailAsync(dto.Email);
+
+            // Do NOT reveal if email exists
+            if (user == null)
+                return;
+
+            var token = Guid.NewGuid().ToString("N");
+
+            user.PasswordResetToken = token;
+            user.PasswordResetTokenExpiry = DateTime.UtcNow.AddMinutes(30);
+
+            await _userRepo.UpdateUserAsync(user);
+
+            var resetLink = $"https://frontend-app.com/reset-password?token={token}";
+            var emailBody = $@"
+                    <p>Hello {user.FirstName},</p>
+                    <p>You requested to reset your password.</p> </br>
+                    <p>
+                        <a href='{resetLink}'>Click here to reset your password</a>
+                    </p> </br>
+                    <p>This link will expire in 30 minutes.</p> </br>
+                    <p>If you did not request this, please ignore this email.</p>";
+
+            await _emailService.SendAsync(user.Email, "Reset Your Password", emailBody);
+
+        }
+
+        // ================= RESET PASSWORD =================
+        public async Task ResetPasswordAsync(ResetPasswordDTO dto)
+        {
+            var user = await _userRepo.GetByResetTokenAsync(dto.Token);
+
+            if (user == null)
+                throw new Exception("Invalid or expired reset token");
+
+            user.PasswordHash = Argon2.Hash(dto.NewPassword);
+            user.PasswordResetToken = null;
+            user.PasswordResetTokenExpiry = null;
+
+            await _userRepo.UpdateUserAsync(user);
         }
     }
 }
